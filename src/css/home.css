@@ -258,4 +258,9 @@ margin: 15px 0;;
       width: 100%;
     }
   }
-  
+  @media screen and (min-width: 1350px) {
+    .cardlist{
+      justify-content: space-around;
+    }
+
+  }
