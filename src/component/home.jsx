@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "../css/home.css";
 import Chart from "chart.js/auto";
-import { Bar,Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import {
   Wind,
   CloudHail,
@@ -52,7 +52,6 @@ function Home(props) {
     ],
   });
 
-
   useEffect(() => {
     setState({
       labels: [
@@ -82,10 +81,9 @@ function Home(props) {
               ? parseInt(data.list[4].main.temp - 273)
               : 49,
           ],
-          backgroundColor:"#FFFF00",
-          borderColor:"Black",
-          borderWidth:"1",
-
+          backgroundColor: "#FFFF00",
+          borderColor: "Black",
+          borderWidth: "1",
         },
       ],
     });
@@ -95,8 +93,8 @@ function Home(props) {
       <div className="container">
         <div className="head">
           <div className="place">
-            <h3>{Object.keys(data).length ? data.city.name : "city"}</h3>
-            <h6>{Object.keys(data).length ? data.city.country : "country"}</h6>
+            <h3>{Object.keys(data).length ? data.city.name : "Delhi"}</h3>
+            <h6>{Object.keys(data).length ? data.city.country : "India"}</h6>
           </div>
           <div className="searchbar">
             <div className="search">
@@ -106,7 +104,7 @@ function Home(props) {
                 onChange={(event) => setCity(event.target.value)}
               />
               <p onClick={() => props.locat(city_name)}>
-                <Search/>
+                <Search />
               </p>
             </div>
           </div>
@@ -128,23 +126,29 @@ function Home(props) {
                   <p>
                     {Object.keys(data).length
                       ? parseInt(data.list[0].main.temp - 273)
-                      : "temp"}
+                      : "23"}
                     °C
                   </p>
                 </div>
                 <p>
                   {Object.keys(data).length
                     ? data.list[0].weather[0].main
-                    : "c10d"}
+                    : "Clear"}
                 </p>
               </div>
             </div>
             <div className="row2">
               <p> Overview Temperature</p>
               <div className="graph">
-                <Line data={state} options={{responsive:"true"}}className="linegraph" />
+                <Line
+                  data={state}
+                  options={{
+                    responsive: "true",
+                    maintainAspectRatio: false,
+                  }}
+                  className="linegraph"
+                />
               </div>
-              
             </div>
           </div>
           <div className="col2">
@@ -164,33 +168,29 @@ function Home(props) {
                 <div className="card">
                   <p>Now</p>
                   {Object.keys(data).length && (
-                    <img
-                      src={` svgfile/${data.list[0].weather[0].icon}.svg`}
-                    />
+                    <img src={` svgfile/${data.list[0].weather[0].icon}.svg`} />
                   )}
                   <p>
                     {Object.keys(data).length
                       ? parseInt(data.list[0].main.temp - 273)
-                      : "false"}
+                      : "32"}
                     °C
                   </p>
                 </div>
                 <div className="card">
-                  <p>{days[(d.getDay() + 1)%7]}</p>
+                  <p>{days[(d.getDay() + 1) % 7]}</p>
                   {Object.keys(data).length && (
-                    <img
-                      src={` svgfile/${data.list[7].weather[0].icon}.svg`}
-                    />
+                    <img src={` svgfile/${data.list[7].weather[0].icon}.svg`} />
                   )}
                   <p>
                     {Object.keys(data).length
                       ? parseInt(data.list[7].main.temp - 273)
-                      : "false"}
+                      : "32"}
                     °C
                   </p>
                 </div>
                 <div className="card">
-                  <p>{days[(d.getDay() + 2)%7]}</p>
+                  <p>{days[(d.getDay() + 2) % 7]}</p>
                   {Object.keys(data).length && (
                     <img
                       src={` svgfile/${data.list[15].weather[0].icon}.svg`}
@@ -199,12 +199,12 @@ function Home(props) {
                   <p>
                     {Object.keys(data).length
                       ? parseInt(data.list[15].main.temp - 273)
-                      : "false"}
+                      : "32"}
                     °C
                   </p>
                 </div>
                 <div className="card">
-                  <p>{days[(d.getDay() + 3)%7]}</p>
+                  <p>{days[(d.getDay() + 3) % 7]}</p>
                   {Object.keys(data).length && (
                     <img
                       src={` svgfile/${data.list[23].weather[0].icon}.svg`}
@@ -213,12 +213,12 @@ function Home(props) {
                   <p>
                     {Object.keys(data).length
                       ? parseInt(data.list[23].main.temp - 273)
-                      : "false"}
+                      : "32"}
                     °C
                   </p>
                 </div>
                 <div className="card">
-                  <p>{days[(d.getDay() + 4)%7]}</p>
+                  <p>{days[(d.getDay() + 4) % 7]}</p>
                   {Object.keys(data).length && (
                     <img
                       src={` svgfile/${data.list[31].weather[0].icon}.svg`}
@@ -227,12 +227,12 @@ function Home(props) {
                   <p>
                     {Object.keys(data).length
                       ? parseInt(data.list[31].main.temp - 273)
-                      : "false"}
+                      : "32"}
                     °C
                   </p>
                 </div>
                 <div className="card">
-                  <p>{days[(d.getDay() + 5)%7]}</p>
+                  <p>{days[(d.getDay() + 5) % 7]}</p>
                   {Object.keys(data).length && (
                     <img
                       src={` svgfile/${data.list[35].weather[0].icon}.svg`}
@@ -241,12 +241,12 @@ function Home(props) {
                   <p>
                     {Object.keys(data).length
                       ? parseInt(data.list[35].main.temp - 273)
-                      : "false"}
+                      : "32"}
                     °C
                   </p>
                 </div>
                 <div className="card">
-                  <p>{days[(d.getDay() + 6)%7]}</p>
+                  <p>{days[(d.getDay() + 6) % 7]}</p>
                   {Object.keys(data).length && (
                     <img
                       src={` svgfile/${data.list[39].weather[0].icon}.svg`}
@@ -255,11 +255,10 @@ function Home(props) {
                   <p>
                     {Object.keys(data).length
                       ? parseInt(data.list[39].main.temp - 273)
-                      : "false"}
+                      : "32"}
                     °C
                   </p>
                 </div>
-               
               </div>
             </div>
             <div className="row2">
@@ -272,7 +271,7 @@ function Home(props) {
                   <p className="value">
                     {Object.keys(data).length
                       ? data.list[0].wind.speed
-                      : "false"}
+                      : "15"}
                     Km/h
                   </p>
                 </div>
@@ -287,7 +286,7 @@ function Home(props) {
                   <p className="value">
                     {Object.keys(data).length
                       ? data.list[0].main.humidity
-                      : "false"}
+                      : "65"}
                   </p>
                 </div>
               </div>
@@ -302,7 +301,7 @@ function Home(props) {
                   <p className="value">
                     {Object.keys(data).length
                       ? data.list[0].main.pressure
-                      : "false"}
+                      : "1065"}
                   </p>
                 </div>
               </div>
@@ -320,7 +319,7 @@ function Home(props) {
                         ).getHours()}:${new Date(
                           data.city.sunrise * 1000
                         ).getMinutes()}`
-                      : "false"}
+                      : "05:02"}
                   </p>
                 </div>
               </div>
