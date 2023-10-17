@@ -81,7 +81,7 @@ function Home(props) {
               ? parseInt(data.list[4].main.temp - 273)
               : 49,
           ],
-          backgroundColor: "#FFFF00",
+          backgroundColor: "violet",
           borderColor: "Black",
           borderWidth: "1",
         },

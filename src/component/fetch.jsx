@@ -52,7 +52,8 @@ function Fetchfun() {
       });
   }
   useEffect(()=>{
-    location("London")
+    livelocation();
+    // location("London")
 }, []) 
 
   const [data, setData] = useState({});
